@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual de Usuario - HCA</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside>
+      <img src="ICONO.png" alt="Logo HCA" id="logo" />
+      <h1>HCA: Monitoreo de la Huella de Carbono</h1>
+      <nav>
+        <a href="#manual-pc">Manual de PC</a>
+        <a href="#manual-movil">Manual de Móvil</a>
+      </nav>
+    </aside>
+
+    <main id="content">
+      <section id="manual-pc">
+        <h2>Manual de Usuario - PC</h2>
+        <div id="manual-pc-content"></div>
+      </section>
+
+      <section id="manual-movil">
+        <h2>Manual de Usuario - Móvil</h2>
+        <div id="manual-movil-content"></div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("manual-pc.html")
+          .then((res) => res.text())
+          .then((html) => {
+            document.getElementById("manual-pc-content").innerHTML = html;
+          });
+
+        fetch("manual-movil.html")
+          .then((res) => res.text())
+          .then((html) => {
+            document.getElementById("manual-movil-content").innerHTML = html;
+          });
+      });
+    </script>
+  </body>
+</html>
