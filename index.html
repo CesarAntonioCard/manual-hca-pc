@@ -4,26 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manual de Usuario - HCA</title>
+    <link rel="shortcut icon" href="/ICONO.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <aside>
-      <img src="ICONO.png" alt="Logo HCA" id="logo" />
-      <h1>HCA: Monitoreo de la Huella de Carbono</h1>
-      <nav>
-        <a href="#manual-pc">Manual de PC</a>
-        <a href="#manual-movil">Manual de Móvil</a>
+    <aside class="manual-sidebar">
+      <img src="ICONO.png" alt="Logo HCA" class="manual-sidebar-logo" />
+      <h1 class="manual-sidebar-title">
+        HCA: Monitoreo de la Huella de Carbono
+      </h1>
+      <nav class="manual-sidebar-nav">
+        <a href="#" class="nav-link" data-target="manual-pc"
+          >Manual de Instalación para PC</a
+        >
+        <a href="#" class="nav-link" data-target="manual-movil"
+          >Manual de Instalación para Móvil</a
+        >
       </nav>
     </aside>
 
-    <main id="content">
-      <section id="manual-pc">
-        <h2>Manual de Usuario - PC</h2>
+    <main id="manual-content">
+      <section id="manual-pc" class="manual-content-section">
+        <h2>Manual de Instalación - PC</h2>
         <div id="manual-pc-content"></div>
       </section>
 
-      <section id="manual-movil">
-        <h2>Manual de Usuario - Móvil</h2>
+      <section id="manual-movil" class="manual-content-section">
+        <h2>Manual de Instalación - Móvil</h2>
         <div id="manual-movil-content"></div>
       </section>
     </main>
@@ -41,6 +48,28 @@
           .then((html) => {
             document.getElementById("manual-movil-content").innerHTML = html;
           });
+
+        const sections = document.querySelectorAll(".manual-content-section");
+        const links = document.querySelectorAll(".nav-link");
+
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = link.dataset.target;
+
+            sections.forEach((section) => section.classList.remove("active"));
+
+            links.forEach((l) => l.classList.remove("active"));
+
+            const activeSection = document.getElementById(target);
+            if (activeSection) activeSection.classList.add("active");
+
+            link.classList.add("active");
+          });
+        });
+
+        document.getElementById("manual-pc").classList.add("active");
+        links[0].classList.add("active");
       });
     </script>
   </body>
