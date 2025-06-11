@@ -105,12 +105,17 @@ body {
 .manual-steps {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
+  padding: 32px;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f9f9f9;
 }
 
 .manual-article {
   padding-bottom: 24px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
 }
 
 .manual-article:last-child {
@@ -118,7 +123,8 @@ body {
 }
 
 .manual-article h4 {
-  color: var(--primary-color);
+  color: #1e40af;
+  font-size: 1.2rem;
   margin-bottom: 12px;
 }
 
@@ -127,11 +133,20 @@ body {
   margin-bottom: 12px;
 }
 
+.manual-article strong {
+  color: #111;
+}
+
 .manual-img {
   display: block;
-  margin: 0 auto;
+  margin: 12px auto;
   max-width: 100%;
-  width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.manual-img:hover {
+  transform: scale(1.02);
 }
